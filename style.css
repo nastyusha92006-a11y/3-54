@@ -1,0 +1,199 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --wb-purple: #cb11ab;
+  --wb-pink: #ff3f6c;
+  --wb-dark: #1a1a1a;
+  --wb-light: #ffffff;
+  --wb-gray: #f4f4f4;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #cb11ab 0%, #ff3f6c 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.3s ease;
+}
+
+body.light {
+  background: linear-gradient(135deg, #f4f4f4 0%, #ffffff 100%);
+}
+
+.page {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Панель управления темой */
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.theme-select,
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Калькулятор */
+.calculator {
+  background: var(--wb-light);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Экран */
+.result {
+  background: var(--wb-gray);
+  border-radius: 16px;
+  padding: 24px;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--wb-dark);
+  margin-bottom: 20px;
+  min-height: 96px;
+  word-break: break-all;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light .result {
+  background: #e8e8e8;
+}
+
+/* Сетка кнопок */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.my-btn {
+  border: none;
+  border-radius: 16px;
+  padding: 18px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--wb-gray);
+  color: var(--wb-dark);
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.my-btn:hover {
+  transform: translateY(-2px);
+}
+
+.my-btn:active {
+  transform: translateY(0);
+}
+
+.my-btn.primary {
+  background: var(--wb-purple);
+  color: #fff;
+}
+
+.my-btn.secondary {
+  background: var(--wb-pink);
+  color: #fff;
+}
+
+.my-btn.zero {
+  grid-column: span 2;
+}
+
+/* Ссылка на GitHub */
+.github-btn {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--wb-dark);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.github-btn:hover {
+  background: #333;
+}
+
+/* Цель работы */
+.lab-goal {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--wb-dark);
+}
+
+.lab-goal mark {
+  background: #ffe4f0;
+  color: var(--wb-purple);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* Автор */
+.author-details {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--wb-dark);
+}
+
+.author-details summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Футер */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.light .footer {
+  color: #555;
+}
+
+/* Акцентные темы */
+body.theme-purple .my-btn.primary { background: #cb11ab; }
+body.theme-pink .my-btn.primary { background: #ff3f6c; }
+body.theme-blue .my-btn.primary { background: #4a90e2; }
+
+/* Тёмная тема */
+body.light .calculator { background: #fff; }
+body:not(.light) .calculator { background: #1e1e1e; }
+body:not(.light) .result { background: #2a2a2a; color: #fff; }
+body:not(.light) .my-btn { background: #2a2a2a; color: #fff; }
+body:not(.light) .lab-goal,
+body:not(.light) .author-details { background: rgba(30, 30, 30, 0.95); color: #fff; }
